@@ -8,16 +8,15 @@ public class Program {
 
     public static void main(String[] args) {
 
-        //Usando Object tem problema de ter que fazer o casting e problema de seguranca de tipos(Type safety)//
+        /*Usando tipo Generics não precisa fazer casting e o compilador não deixa acontecer o problema
+        de seguranca de tipo(Type safety)*/
 
         Scanner sc = new Scanner(System.in);
 
-        PrintService ps = new PrintService();
+        PrintService<Integer> ps = new PrintService<>();
 
         System.out.print("How many values? ");
         int n = sc.nextInt();
-
-        ps.addValue("Maria");
 
         for(int i = 0; i < n; i++) {
             int value = sc.nextInt();
@@ -25,7 +24,7 @@ public class Program {
         }
 
         ps.print();
-        int x = (int) ps.first();
+        int x = ps.first();
         System.out.println("First: " + ps.first());
 
         sc.close();
